@@ -1,14 +1,52 @@
 //Cube
+x = 0;
 let y = 0;
+let z = 0;
+let bool = true;
+let interval; 
 
 const cube = document.querySelector('.cube');
 
-const playPause = ()=>{
-    setInterval(()=>{
-        cube.style.transition= `rotateY(${y++}deg)`;
-    }, 100)
+document.querySelector('.top-x-control').addEventListener('click', ()=>{
+    cube.style.transform = `rotateX(${x +=20 }deg)rotateY(${y}deg)rotateZ(${z}deg)`;
+});
+
+document.querySelector('.bottom-x-control').addEventListener('click', ()=>{
+    cube.style.transform = `rotateX(${x -=20 }deg)rotateY(${y}deg)rotateZ(${z}deg)`;
+});
+
+document.querySelector('.left-y-control').addEventListener('click', ()=>{
+    cube.style.transform = `rotateX(${x}deg)rotateY(${y -=20 }deg)rotateZ(${z}deg)`;
+});
+
+
+
+document.querySelector('.right-y-control').addEventListener('click', ()=>{
+    cube.style.transform = `rotateX(${x}deg)rotateY(${y +=20 }deg)rotateZ(${z}deg)`;
+});
+document.querySelector('.top-z-control').addEventListener('click', ()=>{
+    cube.style.transform = `rotateX(${x}deg)rotateY(${y}deg)rotateZ(${z -= 20}deg)`;
+});
+
+document.querySelector('.bottom-z-control').addEventListener('click', ()=>{
+    cube.style.transform = `rotateX(${x}deg)rotateY(${y +=20 }deg)rotateZ(${z}deg)`;
+});
+
+const playPause = () =>{
+    if(bool){
+        interval = setInterval(() =>{
+            cube.style.transform= `rotateX(${x}deg)rotateY(${y++}deg)rotateZ(${z}deg`;
+        }, 100)
+    }else{
+        clearInterval(interval);
+    }
 }
 playPause();
+
+document.querySelector('.controls').addEventListener('mouseover', ()=>{
+    bool = false;
+    playPause();
+});
 //End of Cube
 
 //Slideshow
@@ -57,3 +95,14 @@ const slideshow = ()=>{
 }
 slideshow();
 //End of Slideshow
+
+//section 3
+const section3Content = document.querySelector('.section-3-content')
+
+window.addEventListener('scroll', ()=>{
+    if(window.pageYOffset + window.innerHeight >= section3Content.offsetTop
+        + section3Content.offsetHeight/2);
+    {
+        section3Content.classList.add('change');    }
+})
+//End of section 3
