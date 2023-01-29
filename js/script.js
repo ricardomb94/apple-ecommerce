@@ -54,7 +54,7 @@ const slideshowDivs = ()=>{
     for(let i = 1; i <= 5; i++){
         const div = document.createElement('div');
         
-        div.style.backgroundImage = `url(../images/slideshow/section-1-bg-${i}.jpg)`;
+        div.style.backgroundImage = `url(./images/slideshow/section-1-bg-${i}.jpg)`;
          
         //When i === 0, it means this is the firts iteration and the first div is created. It's the moment to asign to it a class change.
         i === 1 && div.classList.add('change');
